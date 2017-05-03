@@ -12,3 +12,13 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<% if @user.microposts.any? %>
+  <h3><%= @user.name %>'s first post was:</h3>
+  <p>
+    <%= @user.microposts.first.content.capitalize %>
+  </p>
+  <!-- true -->
+<% else %>
+  <h5>This user has no posts to display</h5>
+<% end %>
